@@ -1,16 +1,24 @@
-from itertools import product
+from itertools import groupby
 
-def print_iter(interator):
-    print(*list(interator), sep='\n')
-    print()
-
-people = [
-    'João', 'Joana', 'Luiz', 'Letícia'
+alunos = [
+    {'nome': 'Luiz', 'nota': 'A'},
+    {'nome': 'Letícia', 'nota': 'B'},
+    {'nome': 'Fabrício', 'nota': 'A'},
+    {'nome': 'Rosemary', 'nota': 'C'},
+    {'nome': 'Joana', 'nota': 'D'},
+    {'nome': 'João', 'nota': 'A'},
+    {'nome': 'Eduardo', 'nota': 'B'},
+    {'nome': 'André', 'nota': 'A'},
+    {'nome': 'Anderson', 'nota': 'C'},
 ]
-t_shirts = [
-    ['Black', 'White'],
-    ['P', 'M','G'], 
-    ['Woman','Men']
-]
 
-print_iter(product(*t_shirts))
+def ordena(aluno):
+    return aluno['nota']
+
+student_agruped = sorted(alunos, key=ordena)
+groups = groupby(student_agruped, key=ordena)
+
+for key, group in groups:
+    print(key)
+    for student in group:
+        print(student)

@@ -1489,6 +1489,37 @@ print_iter(product(*t_shirts))
                    |-> desempacota as listas
 
 
+# GROUPBY
+É usado para agrupar valores, os dados necessitam estar ordenados para realizar o agrupamento
+**Se for uma lista é possível usar sorted para ordenar**
+Ex:
+from itertools import groupby         -----> Usa o módulo *itertools*
+
+alunos = [
+    {'nome': 'Luiz', 'nota': 'A'},
+    {'nome': 'Letícia', 'nota': 'B'},           _______________Print:_________________
+    {'nome': 'Fabrício', 'nota': 'A'},         | *A*                                  |
+    {'nome': 'Rosemary', 'nota': 'C'},         | *{'nome': 'Luiz', 'nota': 'A'}*      |
+    {'nome': 'Joana', 'nota': 'D'},            | *{'nome': 'Fabrício', 'nota': 'A'}*  |
+    {'nome': 'João', 'nota': 'A'},             | *{'nome': 'João', 'nota': 'A'}*      |
+    {'nome': 'Eduardo', 'nota': 'B'},          | *{'nome': 'André', 'nota': 'A'}*     |
+    {'nome': 'André', 'nota': 'A'},            | *B*                                  |
+    {'nome': 'Anderson', 'nota': 'C'},         | *{'nome': 'Letícia', 'nota': 'B'}*   |
+]                                              | *{'nome': 'Eduardo', 'nota': 'B'}*   |
+                                               | *C*                                  |
+def ordena(aluno):                             | *{'nome': 'Rosemary', 'nota': 'C'}*  |
+    return aluno['nota']                       | *{'nome': 'Anderson', 'nota': 'C'}*  |
+                                               | *D*                                  |
+student_agruped = sorted(alunos, key=ordena)   | *{'nome': 'Joana', 'nota': 'D'}*     |
+groups = groupby(student_agruped, key=ordena)  |______________________________________|
+
+for key, group in groups:
+    print(key)
+    for student in group:
+        print(student)
+
+
+# MAP
 
 
 # ESTRUTURA TRY - PERMITE TESTAR UM BLOCO DE CÓDIGO QUANTO A ERRO
