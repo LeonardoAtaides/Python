@@ -1520,7 +1520,67 @@ for key, group in groups:
 
 
 # MAP
+Se comporta como umas list compreshion, só que realiza o mapeamento dos dados
+**Mas necessita passar uma função e um interavél dentro dos parâmetros de MAP**
+*variável = map(função, interável)* -> quando pequeno pode-se usar *lambda*
 
+Ex:
+
+from functools import partial -> usado para "simular uma closure", recebendo a função 
+                                 e um dos argumentos
+
+def print_iter(iterator):
+    print(*list(iterator), sep='\n')
+    print()
+
+produtos = [                                  ________________ Print:__________________
+    {'nome': 'Produto 5', 'preco': 10.00},   | *{'nome': 'Produto 5', 'preco': 11.0}*  |
+    {'nome': 'Produto 1', 'preco': 22.32},   | *{'nome': 'Produto 1', 'preco': 24.55}* |
+    {'nome': 'Produto 3', 'preco': 10.11},   | *{'nome': 'Produto 3', 'preco': 11.12}* |
+    {'nome': 'Produto 2', 'preco': 105.87},  | *{'nome': 'Produto 2', 'preco': 116.46}*|
+    {'nome': 'Produto 4', 'preco': 69.90},   | *{'nome': 'Produto 4', 'preco': 76.89}* |
+]                                            |_________________________________________|
+
+def aumentar_porcentagem(valor, porcentagem):
+    return round(valor * porcentagem, 2)
+
+aumentar_dez_porcento = partial(
+    aumentar_porcentagem,
+    porcentagem=1.1
+)
+
+def muda_preco_produtos(produto):
+    return{
+        **produto, 'preco': aumentar_dez_porcento(produto['preco'])}
+
+novos_produtos = list(map(          | Usa-se list para visualizar os dados         |
+    muda_preco_produtos, produtos   | pois apenas a função MAP retorna o interável |
+))
+
+print_iter(novos_produtos)
+
+# FILTER
+É usado para filtrar dados através de *if* como exemplo, aqui usa-se o método *filter*
+**Mas necessita passar uma função e um interavél dentro dos parâmetros de FILTER**
+Ex:
+def print_iter(iterator):
+    print(*list(iterator), sep='\n')
+    print()
+
+produtos = [                                 _________________Print:___________________
+    {'nome': 'Produto 5', 'preco': 10.00},  | *{'nome': 'Produto 1', 'preco': 22.32}*  |
+    {'nome': 'Produto 1', 'preco': 22.32},  | *{'nome': 'Produto 2', 'preco': 105.87}* |
+    {'nome': 'Produto 3', 'preco': 10.11},  | *{'nome': 'Produto 4', 'preco': 69.9}*   |
+    {'nome': 'Produto 2', 'preco': 105.87}, |__________________________________________|
+    {'nome': 'Produto 4', 'preco': 69.90},
+]
+
+novos_produtos = filter(
+    lambda p: p['preco'] >= 20, produtos
+         |-> função               |-> interável onde ele irá buscar os dados
+)
+
+print_iter(novos_produtos)
 
 # ESTRUTURA TRY - PERMITE TESTAR UM BLOCO DE CÓDIGO QUANTO A ERRO
 # EXCEPT - Permite que você lide com o erro
@@ -1576,7 +1636,7 @@ dados.Maior_Idade()
 # PIP INSTALL - para instalar bibliotecas
 *pip install - biblioteca *
 
-# COMANDO AROUND - para arrendondar números
+# COMANDO ROUND - para arrendondar números
 **round()**
 Ex:
 Valor_exemplo = 123.999
