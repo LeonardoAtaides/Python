@@ -1582,6 +1582,40 @@ novos_produtos = filter(
 
 print_iter(novos_produtos)
 
+# Reduce
+Faz a redução de um iterável em um valor, **necessário importar o módulo functools**, ele
+recebe três argumentos, a *função*, o *interável* e o *inicializador*
+
+Ex:
+Deseja realizar um total dos valores do produtos
+
+from functools import reduce -> importante importar esse módulo para usar o reduce
+
+produtos = [
+    {'nome': 'Produto 5', 'preco': 10.00},
+    {'nome': 'Produto 1', 'preco': 22.32},
+    {'nome': 'Produto 3', 'preco': 10.11},
+    {'nome': 'Produto 2', 'preco': 105.87},
+    {'nome': 'Produto 4', 'preco': 69.90},
+]
+
+def func_reduce(acumulador, produto ):
+    return  acumulador + produto['preco']
+
+total = reduce(     
+    func_reduce,   --> *função*    # lambda ac, p: ac + p['preco']
+    produtos,      --> *interável*
+    0              --> *inicializador*
+)
+print(f'O total é: {total}')*O total é: 44*
+
+
+# Funções Recursivas  e recursividade
+
+
+
+
+
 # ESTRUTURA TRY - PERMITE TESTAR UM BLOCO DE CÓDIGO QUANTO A ERRO
 # EXCEPT - Permite que você lide com o erro
 # ELSE - Permite executar código quando não há erro
