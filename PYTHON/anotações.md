@@ -1610,12 +1610,13 @@ total = reduce(
 print(f'O total é: {total}')*O total é: 44*
 
 
-# Funções Recursivas  e recursividade
-Funções que podem se chamar de volta
+# Função Recursiva
+Funções que podem se chamar de volta, atuam parecida com o *for*
 **úteis p/ dividir problemas grandes em partes menores, toda função recursiva deve ter:**
 - Um problema que possa ser dividido em partes menores
 - Um caso recursivo que resolve o pequeno problema
 - Um caso base que para a recursão
+**Limitada em até 1000 execuções**
 
 Ex: 
 
@@ -1628,6 +1629,20 @@ def recursiva (inicio=0, fim=4):
     return recursiva(inicio, fim)
 
 print(recursiva())
+
+# Ambientes Vituais VENV
+Um VENV carrega toda a sua instalação do Python para uma pasta no caminho escolhido, é um módulo que vamos usar para crirar ambientes virtuais, pode ser nomeado da forma que preferir, mas o mais comum é:  venv | env | .venv | .env  
+
+- É literalmente uma pasta
+- Nesta pasta vai ter a instalação do Python e tudo que estiver junto a ele
+(Guardando também a versão do python podendo ter manutenção em códigos antigos)
+
+# Como Criar um VENV
+No terminal, especifimente powershell, utiliza-se o comando:
+*python -m venv* (nome da pasta)
+
+
+
 
 
 
