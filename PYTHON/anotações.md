@@ -1641,6 +1641,7 @@ Um VENV carrega toda a sua instalação do Python para uma pasta no caminho esco
 No terminal, especifimente powershell, utiliza-se o comando:
 *python -m venv* (nome da pasta)
 
+Para ativar o o VENV usa-se o comando, *.\venv\Scripts\activate*
 
 
 
