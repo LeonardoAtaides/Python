@@ -1637,15 +1637,26 @@ Um VENV carrega toda a sua instalação do Python para uma pasta no caminho esco
 - Nesta pasta vai ter a instalação do Python e tudo que estiver junto a ele
 (Guardando também a versão do python podendo ter manutenção em códigos antigos)
 
-# Como Criar um VENV
+## Como Criar um VENV
 No terminal, especifimente powershell, utiliza-se o comando:
 *python -m venv* (nome da pasta)
 
 Para ativar o o VENV usa-se o comando, *.\venv\Scripts\activate*
 
+# PIP INSTALL
+para instalar bibliotecas extras para o python, usa-se o comando: *pip install - biblioteca*
+para realizar uma atualização da biblioteca, **python.exe -m pip install --upgrade pip*
 
+## Listar Oque está instalado
+Utiliza-se o comando *pip freeze* para verificar as biblioteca instaladas no ambiente virtual
 
-
+## Como Desistalar um PIP
+Utiliza-se o comando *pip uninstall - biblioteca -y* 
+**O Y é para confirmar a desinstalação da biblioteca**
+ 
+## Ver Versões de uma biblioteca
+Utiliza-se o comando *pip index versions - biblioteca*
+para instalar uma versão usa o comando, *pip install - biblioteca==versão*
 
 # ESTRUTURA TRY - PERMITE TESTAR UM BLOCO DE CÓDIGO QUANTO A ERRO
 # EXCEPT - Permite que você lide com o erro
@@ -1698,8 +1709,7 @@ class Pessoa:
 dados = Pessoa ('Claudio', 19)
 dados.Maior_Idade()
 
-# PIP INSTALL - para instalar bibliotecas
-*pip install - biblioteca *
+
 
 # COMANDO ROUND - para arrendondar números
 **round()**
