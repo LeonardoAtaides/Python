@@ -1632,7 +1632,7 @@ print(recursiva())
 
 # Ambientes Vituais VENV
 Um VENV carrega toda a sua instalação do Python para uma pasta no caminho escolhido, é um módulo que vamos usar para crirar ambientes virtuais, pode ser nomeado da forma que preferir, mas o mais comum é:  venv | env | .venv | .env  
-
+        **O AMBIENTE VIRTUAL PERMITE VÁRIAS VERSÕES DIFERENTES DE FRAMEWOORKS**
 - É literalmente uma pasta
 - Nesta pasta vai ter a instalação do Python e tudo que estiver junto a ele
 (Guardando também a versão do python podendo ter manutenção em códigos antigos)
@@ -1642,6 +1642,7 @@ No terminal, especifimente powershell, utiliza-se o comando:
 *python -m venv* (nome da pasta)
 
 Para ativar o o VENV usa-se o comando, *.\venv\Scripts\activate*
+Para desativar usa-se o comando, *deactivate*
 
 # PIP INSTALL
 para instalar bibliotecas extras para o python, usa-se o comando: *pip install - biblioteca*
@@ -1657,6 +1658,17 @@ Utiliza-se o comando *pip uninstall - biblioteca -y*
 ## Ver Versões de uma biblioteca
 Utiliza-se o comando *pip index versions - biblioteca*
 para instalar uma versão usa o comando, *pip install - biblioteca==versão*
+
+# REQUIREMENTS.TXT
+Serve para salvar as versões de um ambiente virtual, podendo reinstalar quando desejar
+
+## Criar o Arquivo Requirements
+usa-se o comando, *pip freeze > requirements.txt*
+
+## Para instalar as versões do Requirements
+Usa-se o comando, *pip install -r requirements.txt*
+
+
 
 # ESTRUTURA TRY - PERMITE TESTAR UM BLOCO DE CÓDIGO QUANTO A ERRO
 # EXCEPT - Permite que você lide com o erro
