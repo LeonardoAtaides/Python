@@ -1671,12 +1671,24 @@ usa-se o comando, *pip freeze > requirements.txt*
 Usa-se o comando, *pip install -r requirements.txt*
 
 # CONTEXT MANAGER WITH - (abre e fecha)
-Deve-se sempre abrir e fechar um arquivo, usando o método:
+**Para o caminho do arquivo usa-se \\ para corrigir o erro da \ no windons**
+Ex:
+caminho = 'C:\\Users\\leona\\OneDrive\\Documentos\\UDEMY_PTHON\\PYTHON\\Context Manager\\'
+caminho += 'arquivo.txt'
+
+Deve-se sempre abrir e fechar um arquivo, para abrir usa a função:
+                **Passa dois paramêtros**
+
+*arquivo.OPEN(caminho_arquivo, 'w')*
+              |-> 1° caminho do |-> 2° o modo de leitura
+                       arquivo           *(escrita)*
+Para fechar usa a função:
+*arquivo.CLOSE()*
+**------------------MANEIRA MAIS EFICIENTE---------------------**
+usando o método irá abrir e fechar automaticamente:
 *with* open(caminho-arquivo, 'w') *as* arquivo:
 
-## Criando arquivos com Python + Context Manager with
-Usamos a função *open* para abrir, um arquivo em Python através de *Modos:*
-
+## Modos do Context Manager
 *r* - leitura
 *w* - escrita
 *x* -  para criação
@@ -1686,7 +1698,13 @@ Usamos a função *open* para abrir, um arquivo em Python através de *Modos:*
 *+* - leitura e escrita
 
 ## Métodos úteis
-# write, read (escrever e ler)
+*write read* - escrever e ler
+Ex:
+with open(caminho_arquivo,'w') as arquivo:
+    arquivo.write('Boa Noite!')
+**Onde o "Boa Noite!" irá aparecer no arquivo.txt**
+
+
 # writelines (escrever várias linhas)
 # seek (move o cursor)
 # readline (ler linha)
