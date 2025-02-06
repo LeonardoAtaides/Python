@@ -1687,34 +1687,59 @@ Para fechar usa a função:
 **------------------MANEIRA MAIS EFICIENTE---------------------**
 usando o método irá abrir e fechar automaticamente:
 *with* open(caminho-arquivo, 'w') *as* arquivo:
+**Para ler arquivos com acentos usa-se *encondind='utf-8'***
 
 ## Modos do Context Manager
 *r* - leitura
-*w* - escrita
+*w* - escrita (apaga tudo antes e depois escreve)
 *x* -  para criação
-*a* - escreve ao final
+*a* - escreve ao final (mantém os dados de antes)
 *b* -  binário
 *t* - modo texto
 *+* - leitura e escrita
 
 ## Métodos úteis
-*write read* - escrever e ler
+*write* - escreve
 Ex:
 with open(caminho_arquivo,'w') as arquivo:
     arquivo.write('Boa Noite!')
 **Onde o "Boa Noite!" irá aparecer no arquivo.txt**
 
+*read*  -  ler
+Ex:    
+with open(caminho_arquivo,'r') as arquivo:
+print(arquivo.read())
 
-# writelines (escrever várias linhas)
-# seek (move o cursor)
-# readline (ler linha)
-# readlines (ler linhas)
-# Vamos falar mais sobre o módulo os, mas:
-# os.remove ou unlink - apaga o arquivo
-# os.rename - troca o nome ou move o arquivo
-# Vamos falar mais sobre o módulo json, mas:
-# json.dump = Gera um arquivo json
-# json.load
+*seek* - move o cursor
+Ex:
+arquivo.seek(0,0)
+
+*readlines* - ler linha por linha
+Ex:
+with open(caminho_arquivo,'r') as arquivo:
+    print(arquivo.readline().strip())
+    print(arquivo.readline().strip())
+
+*writelines* escrever várias linhas
+Ex:
+with open(caminho_arquivo,'w') as arquivo:
+    arquivo.writelines(                 
+        ('Bom Dia!\n', 'Boa Tarde!\n', 'Boa Noite!\n' )
+    )
+
+## Módulo OS
+importa o módulo *import os*
+**Sempre passa o caminho do arquivo**
+
+*os.remove ou unlink* - apaga o arquivo
+Ex:
+os.remove(caminho_arquivo)
+
+*os.rename* - troca o nome e move o arquivo
+Ex:
+os.remove(caminho_arquivo, 'arquivo_renomeado.txt')
+
+# JSON
 
 
 
