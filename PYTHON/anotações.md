@@ -1739,7 +1739,37 @@ os.remove(caminho_arquivo)
 Ex:
 os.remove(caminho_arquivo, 'arquivo_renomeado.txt')
 
-# JSON
+# JSONSE
+Serve para salvar ou transportar dados,Utiliza A biblioteca *json*. A estrutura de dados *json* é muito simples, não suportando coisas que executando ações específicas, como funções, métodos, classes, sets, suporta apenas dados que podem ser convertidos de python para json, **Recomendado para projeto pequenos**
+
+## JSON DUMP ()
+Serve para jogar os dados para um outro arquivo, onde com esse método ele cria um arquivo e joga os dados lá, **dentro do dos () recebe dois parametros o objeto e o arquivo**
+Ex:
+with open('arquivo.json', 'w') as arquivo:
+    json.dump(pessoa, arquivo)
+                |       |-> *Arquivo*
+                |-> *Objeto*
+**Passando o *ensure_ascii=False* para salvar os dados com todos os acentos nas strings**
+**Passando o *indent=2* para identar os dados, deixando mais organizado visualmente**
+Ex:                                  |-> Permite que as strings permaneça com acentos
+with open('arquivo.json', 'w', encoding='utf-8') as arquivo:
+    json.dump(pessoa, arquivo, ensure_ascii=False, indent=2)        
+                                    |               |-> deixa o dados identados
+                                    |->Permite que as strings permaneça com acentos
+
+
+## JSON LOAD ()
+Serve para carregar um arquivo, onde já há dados armazenados, onde ele executará a conversão
+de json para python, utlizando *json.load* mais dentro de uma variável
+Ex:
+with open('arquivo.json', 'r', encoding='utf-8') as arquivo:
+    pessoa = json.load(arquivo)
+    |-> variável         |- passa o arquivo
+        
+
+
+
+
 
 
 
