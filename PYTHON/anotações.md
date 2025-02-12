@@ -335,6 +335,30 @@ DICIONÁRIOS - São criados usando {} - Chaves
 dicionario = {'Index': 'Valor', 'id1': 1, 'id2':2, 'nome': 'José'}
 print(dicionario)
 
+# CORES NO TERMINAL
+# TEXT - TEXTO - cor do texto  |      BACK - COR DO FUNDO  |  STYLE - COMPORTAMENTO 
+          30 - branco          |         40 - branco       |    0 - nada (None)
+          31 - vermelho        |         41 - vermelho     |    1 - negrito (Bold)
+          32 - verde           |         42 - verde        |    4 - sublinhado (Underline)
+          33 - amarelo         |         43 - amarelo      |    7 - inverte ás configurações
+          34 - azul            |         44 - azul         |
+          35 - roxo            |         45 - roxo         |
+          36 - ciano           |         46 - ciano        |
+          37 - cinza           |         47 - cinza        |
+
+Ex:
+print('\033[1;31;43mOlá mundo!\033[m')
+
+Ex2:
+nome = 'Leozin'
+cores = {'limpa': '\033[m', 
+         'Azul': '\033[34m', 
+         'Verde': '\033[32m', 
+         'Cinza': '\033[37m'}
+print('Muito prazer em te conhecer, {}{}{}!'.format(cores['Verde'],nome,cores['limpa']))
+
+
+
 **MANIPULAÇÃO DE LISTAS**
 
 # 1 - * APEEND() - Para adicionar um item ao final da lista *
@@ -580,6 +604,8 @@ while n != 0:
 print('Você digitou {} números pares e {} números ímpares!'.format(par, impar))
 
 
+
+*Para mitigar erros no código*
 # BREAK
 *serve para parar um código em if,elif, else*
 Ex:
@@ -606,6 +632,20 @@ def soma (x, y):
 variavel = soma(1, 3)
 print(variavel) - *4*
 **possibilita alocar os valores dentro de uma variável**
+
+# ESTRUTURA TRY - PERMITE TESTAR UM BLOCO DE CÓDIGO QUANTO A ERRO
+# EXCEPT - Permite que você lide com o erro
+# ELSE - Permite executar código quando não há erro
+# FINALLY - Permite que você execute código, indepedente do resultado dos blocos try e except
+Ex:
+try:
+    0/0
+    print('Deu certo meu script!')
+except:
+    print('Não deu certo')
+finally:                                                       
+    print('Vai ser executado da mesma forma!!!')
+
 
 # DEF
 Funções sãoo trechos de código usadas para replicar determinada ação 
@@ -1768,27 +1808,6 @@ with open('arquivo.json', 'r', encoding='utf-8') as arquivo:
         
 
 
-
-
-
-
-
-
-# ESTRUTURA TRY - PERMITE TESTAR UM BLOCO DE CÓDIGO QUANTO A ERRO
-# EXCEPT - Permite que você lide com o erro
-# ELSE - Permite executar código quando não há erro
-# FINALLY - Permite que você execute código, indepedente do resultado dos blocos try e except
-*Para mitigar erros no código*
-
-Ex:
-try:
-    0/0
-    print('Deu certo meu script!')
-except:
-    print('Não deu certo')
-finally:                                                       
-    print('Vai ser executado da mesma forma!!!')
-
 # ESTRUTURA DE CLASSES/OBJETOS - UMA CLASSE É COMO UM CONSTRUTOR DE OBJETOS, OU UM 'PROJETO' PARA CRIAR OBJETOS
 
 __init__ = *serve para inicializar os atributos do objeto ou seja, definir as propriedades e valores inicias*
@@ -1861,67 +1880,6 @@ del pessoa['Nome']
 print(pessoa.get('Nome', None))
                           |-> ou 'NÃO EXISTE'
 
- # CORES NO TERMINAL
-
-ANSI - escape sequence
-#  \033[m
-
-         style               back
-#   \033[estilo   texto     fundo     m
-                   text
-
-STYLE - COMPORTAMENTO -normal, negrito, sublinhada
-0 - nada (None)
-1 - negrito (Bold)
-4 - sublinhado (Underline)
-7 - inverte ás conf (Negative) ex: \033[7;30m - letra preta, fundo branco
-
-TEXT - TEXTO - cor do texto
-30 - branco
-31 - vermelho
-32 - verde
-33 - amarelo
-34 - azul
-35 - roxo
-36 - ciano
-37 - cinza
-
-BACK - COR DO FUNDO
-40 - branco
-41 - vermelho
-42 - verde
-43 - amarelo
-44 - azul 
-45 - roxo
-46 - ciano
-47 - cinza
-
-ex1:
-print('\033[1;31;43mOlá mundo!\033[m')
-
-ex2:
-a = 3
-b = 5
-print('\033[mOs valores são \033[32m{}\033[m e \033[31m{}\033[m!!'.format(a,b))
-
-ex3:
-nome = 'Leozin'
-print('Muito prazer em te conhecer, {}{}{}!'.format('\033[4;32m', nome, '\033[m'))
-
-ex4:
-nome = 'Leozin'
-cores = {'limpa': '\033[m', 
-         'Azul': '\033[34m', 
-         'Verde': '\033[32m', 
-         'Cinza': '\033[37m'}
-print('Muito prazer em te conhecer, {}{}{}!'.format(cores['Verde'],nome,cores['limpa']))
-
-
-
-
-# Try e Except:
-**try** -> tenta executar o código
-**execept** -> ocorreu algum erro ao tentar executar
 
 # ID -- Identidade
 Ex:
