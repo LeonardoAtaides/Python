@@ -1779,7 +1779,7 @@ os.remove(caminho_arquivo)
 Ex:
 os.remove(caminho_arquivo, 'arquivo_renomeado.txt')
 
-# JSONSE
+# JSON
 Serve para salvar ou transportar dados,Utiliza A biblioteca *json*. A estrutura de dados *json* é muito simples, não suportando coisas que executando ações específicas, como funções, métodos, classes, sets, suporta apenas dados que podem ser convertidos de python para json, **Recomendado para projeto pequenos**
 
 ## JSON DUMP ()
@@ -1805,7 +1805,8 @@ Ex:
 with open('arquivo.json', 'r', encoding='utf-8') as arquivo:
     pessoa = json.load(arquivo)
     |-> variável         |- passa o arquivo
-        
+
+
 
 
 # ESTRUTURA DE CLASSES/OBJETOS - UMA CLASSE É COMO UM CONSTRUTOR DE OBJETOS, OU UM 'PROJETO' PARA CRIAR OBJETOS
