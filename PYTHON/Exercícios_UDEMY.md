@@ -1377,3 +1377,139 @@ while sexo not in 'MmFf':
 
     elif sexo == 'F':
         print('O seu sexo e Feminimo')
+
+
+
+
+
+# Exercício - Lista de tarefas com desfazer e refazer
+## Minha versão com 54 linhas
+todo = []
+refazer = []
+desfazer = []
+opcoes = ['Listar', 'Desfazer', 'Refazer']
+
+while True:
+    print('Comandos: Listar, Desfazer, Refazer ou Sair')
+    Escolha_Usuario = str(input('Digite uma tarefa ou comando: ').strip().capitalize())
+    print()
+
+    if Escolha_Usuario == 'Sair':
+        print('\033[1;33;40mPrograma Encerrado!\033[m')
+        break
+
+    if Escolha_Usuario in opcoes:
+
+        if Escolha_Usuario == 'Listar':
+            print(f'\nTAREFAS:')
+            for indice, tarefas in enumerate(todo, start=1):
+                print(f'{indice} - {tarefas}')
+            print()
+        
+        elif Escolha_Usuario == 'Desfazer':
+            if not todo:
+                print()
+                print('\033[1;31mNão há nada para Desfazer\033[m')
+                print()
+            else:
+                print('\033[1;32mRemovido com sucesso!\033[m')
+                refazer.append(todo.pop())
+                print(f'\nTAREFAS:')
+                for indice, tarefas in enumerate(todo, start=1):
+                     print(f'{indice} - {tarefas}')
+                print()
+        
+        elif Escolha_Usuario == 'Refazer':
+            if not refazer:
+                print()
+                print('\033[1;31mNão há nada para Refazer\033[m')
+                print()
+            else:
+                print('\033[1;32mAdicionado Novamente!\033[m')
+                todo.append(refazer.pop())
+                print(f'\nTAREFAS:')
+                for indice, tarefas in enumerate(todo, start=1):
+                    print(f'{indice} - {tarefas}')
+                print()
+                
+    elif Escolha_Usuario.isdigit():
+        print('\033[1;33;40mDIGITE ALGO VÁLIDO\033[m')
+        
+    else:
+        todo.append(Escolha_Usuario)
+## Versão do Professor
+import os
+
+
+def listar(tarefas):
+    print()
+    if not tarefas:
+        print('Nenhuma tarefa para listar')
+        return
+
+    print('Tarefas:')
+    for tarefa in tarefas:
+        print(f'\t{tarefa}')
+    print()
+
+
+def desfazer(tarefas, tarefas_refazer):
+    print()
+    if not tarefas:
+        print('Nenhuma tarefa para desfazer')
+        return
+
+    tarefa = tarefas.pop()
+    print(f'{tarefa=} removida da lista de tarefas.')
+    tarefas_refazer.append(tarefa)
+    print()
+
+
+def refazer(tarefas, tarefas_refazer):
+    print()
+    if not tarefas_refazer:
+        print('Nenhuma tarefa para refazer')
+        return
+
+    tarefa = tarefas_refazer.pop()
+    print(f'{tarefa=} adicionada na lista de tarefas.')
+    tarefas.append(tarefa)
+    print()
+
+
+def adicionar(tarefa, tarefas):
+    print()
+    tarefa = tarefa.strip()
+    if not tarefa:
+        print('Você não digitou uma tarefa.')
+        return
+    print(f'{tarefa=} adicionada na lista de tarefas.')
+    tarefas.append(tarefa)
+    print()
+
+
+tarefas = []
+tarefas_refazer = []
+
+while True:
+    print('Comandos: listar, desfazer e refazer')
+    tarefa = input('Digite uma tarefa ou comando: ')
+
+    if tarefa == 'listar':
+        listar(tarefas)
+        continue
+    elif tarefa == 'desfazer':
+        desfazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+        continue
+    elif tarefa == 'refazer':
+        refazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+        continue
+    elif tarefa == 'clear':
+        os.system('clear')
+        continue
+    else:
+        adicionar(tarefa, tarefas)
+        listar(tarefas)
+        continue
