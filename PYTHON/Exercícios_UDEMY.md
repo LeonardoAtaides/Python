@@ -1584,3 +1584,183 @@ while True:
     comando = comandos.get(tarefa) if comandos.get(tarefa) is not None else \
         comandos['adicionar']
     comando()
+
+# Outra Versão Salvando Dados com o json
+
+import os
+import json
+
+def listar(tarefas):
+    print()
+    if not tarefas:
+        print('Nenhuma tarefa para listar')
+        return
+
+    print('Tarefas:')
+    for tarefa in tarefas:
+        print(f'\t{tarefa}')
+    print()
+
+
+def desfazer(tarefas, tarefas_refazer):
+    print()
+    if not tarefas:
+        print('Nenhuma tarefa para desfazer')
+        return
+
+    tarefa = tarefas.pop()
+    print(f'{tarefa=} removida da lista de tarefas.')
+    tarefas_refazer.append(tarefa)
+    print()
+
+
+def refazer(tarefas, tarefas_refazer):
+    print()
+    if not tarefas_refazer:
+        print('Nenhuma tarefa para refazer')
+        return
+
+    tarefa = tarefas_refazer.pop()
+    print(f'{tarefa=} adicionada na lista de tarefas.')
+    tarefas.append(tarefa)
+    print()
+
+
+def adicionar(tarefa, tarefas):
+    print()
+    tarefa = tarefa.strip()
+    if not tarefa:
+        print('Você não digitou uma tarefa.')
+        return
+    print(f'{tarefa=} adicionada na lista de tarefas.')
+    tarefas.append(tarefa)
+    print()
+
+
+def ler(caminho_arquivo):
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo:  # Corrigido para 'r' (leitura)
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        dados = []  # Se o arquivo não existir, retorna uma lista vazia
+    return dados
+
+
+def salvar(tarefas, caminho_arquivo):
+    with open(caminho_arquivo, 'w', encoding='utf-8') as arquivo:
+        json.dump(tarefas, arquivo, indent=2, ensure_ascii=False)
+    print("Dados Salvos Com Sucesso!")
+
+
+CAMINHO_ARQUIVO = 'C:\\Users\\leona\\OneDrive\\Documentos\\UDEMY_PTHON\\PYTHON\\dados.json'
+
+# Carregar tarefas ao iniciar o programa
+tarefas = ler(CAMINHO_ARQUIVO)
+tarefas_refazer = []
+
+while True:
+    print('Comandos: listar, desfazer, refazer, salvar dados ou clear')
+    tarefa = input('Digite uma tarefa ou comando: ')
+
+    if tarefa == 'listar':
+        listar(tarefas)
+    elif tarefa == 'desfazer':
+        desfazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+    elif tarefa == 'refazer':
+        refazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+    elif tarefa == 'clear':
+        os.system('cls')
+    elif tarefa == 'salvar':
+        salvar(tarefas, CAMINHO_ARQUIVO)
+        break
+    else:
+        adicionar(tarefa, tarefas)
+        listar(tarefas)
+import os
+import json
+
+def listar(tarefas):
+    if not tarefas:
+        print('Nenhuma tarefa para listar')
+        return
+
+    print('Tarefas:')
+    for indice, tarefa in enumerate(tarefas, start=1):
+        print(f'\t{indice}. {tarefa}')
+
+
+def desfazer(tarefas, tarefas_refazer):
+    if not tarefas:
+        print('Nenhuma tarefa para desfazer')
+        return
+
+    tarefa = tarefas.pop()
+    print(f'{tarefa} removida da lista de tarefas.')
+    tarefas_refazer.append(tarefa)
+
+
+def refazer(tarefas, tarefas_refazer):
+    if not tarefas_refazer:
+        print('Nenhuma tarefa para refazer')
+        return
+
+    tarefa = tarefas_refazer.pop()
+    print(f'{tarefa} adicionada na lista de tarefas.')
+    tarefas.append(tarefa)
+
+
+def adicionar(tarefa, tarefas):
+    tarefa = tarefa.strip()
+    if not tarefa:
+        print('Você não digitou uma tarefa.')
+        return
+    print(f'{tarefa} adicionada na lista de tarefas.')
+    tarefas.append(tarefa)
+
+
+def ler(caminho_arquivo):
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo:
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        dados = []
+    return dados
+
+
+def salvar(tarefas, caminho_arquivo):
+    with open(caminho_arquivo, 'w', encoding='utf-8') as arquivo:
+        json.dump(tarefas, arquivo, indent=2, ensure_ascii=False)
+    print("Dados Salvos Com Sucesso!")
+
+
+def exibir_menu():
+    print('Comandos: listar, desfazer, refazer, salvar dados ou clear')
+
+
+CAMINHO_ARQUIVO = 'C:\\Users\\leona\\OneDrive\\Documentos\\UDEMY_PTHON\\PYTHON\\dados.json'
+
+tarefas = ler(CAMINHO_ARQUIVO)
+tarefas_refazer = []
+
+while True:
+    exibir_menu()
+    tarefa = input('Digite uma tarefa ou comando: ').strip().lower()
+
+    if tarefa == 'listar':
+        listar(tarefas)
+    elif tarefa == 'desfazer':
+        desfazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+    elif tarefa == 'refazer':
+        refazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+    elif tarefa == 'clear':
+        os.system('cls')
+    elif tarefa == 'salvar':
+        salvar(tarefas, CAMINHO_ARQUIVO)
+        break
+    else:
+        adicionar(tarefa, tarefas)
+        listar(tarefas)
