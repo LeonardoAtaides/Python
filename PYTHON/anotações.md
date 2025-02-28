@@ -1807,7 +1807,19 @@ with open('arquivo.json', 'r', encoding='utf-8') as arquivo:
     |-> variável         |- passa o arquivo
 
 
+# POSITIONAL ONLY PARAMETERS
+Tudo que vem antes da barra ( / ) deve ser apenas posicional
+Ex:
+def soma(a, b,/, c, d):
+    ...
+soma(1, 2 ,3, y=3)
 
+# KEYWORD ONLY ARGUMENTS
+Trabalha sozinho usando ( * ), não puxa os dados como o *args*
+ Ex:
+def soma(a, b, *, c):
+    ...
+soma(1, 2, c= 3)
 
 # ESTRUTURA DE CLASSES/OBJETOS - UMA CLASSE É COMO UM CONSTRUTOR DE OBJETOS, OU UM 'PROJETO' PARA CRIAR OBJETOS
 
