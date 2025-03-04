@@ -1821,15 +1821,49 @@ def soma(a, b, *, c):
     ...
 soma(1, 2, c= 3)
 
-# ESTRUTURA DE CLASSES/OBJETOS - UMA CLASSE É COMO UM CONSTRUTOR DE OBJETOS, OU UM 'PROJETO' PARA CRIAR OBJETOS
+
+# PROGRAMAÇÃO ORIENTADA A OBJETOS
+
+# CLASS
+classes ssão moldes para criar novos objetos, gerando novos objetos (instânciais) que podem
+ter seus próprios atributos e métodos, onde são gerados por uma classe podem usar seus dados 
+internos para realizar várias ações,
+**Usa o método do PascalCase ou seja as primeiras letras de cada palavra em maiúsculo**
+Ex:
+class Pessoa:
+|   ...
+|-> E dentro da classe e necessário que utilizamos os comandos:
 
 __init__ = *serve para inicializar os atributos do objeto ou seja, definir as propriedades e valores inicias*
-
-- self =  *É uma convenção de nomenclatura que se refere à instância atual da classe*
-
 Ex:
-
 class Pessoa:
+    def __init__(self,): sempre passado com o **self**
+                   |-> *É uma convenção de nomenclatura que se*
+                       *refere à instância atual da classe*
+
+Logo após passa os paramêtros desejados, *nome e sobrenome*:
+    def __init__(self, nome, sobrenome):
+        self.nome = nome
+        self.sobrenoome = sobrenome
+
+Ex: Classe com método
+class Carro:
+    def __init__(self, nome):
+        self.nome = nome
+    
+#          Método
+    def acelerar(self, ):
+        print(f'{self.nome} está acelereando...')
+
+fusca = Carro('Fusca')
+print(fusca.nome)
+fusca.acelerar()
+
+celta = Carro('Celta')
+print(celta.nome)
+celta.acelerar()
+
+
 
 #Metodo Construtor
     def __init__(self, Nome, Idade):
