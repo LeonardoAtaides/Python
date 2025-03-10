@@ -1863,9 +1863,60 @@ celta = Carro('Celta')
 print(celta.nome)
 celta.acelerar()
 
+## Ex: Uma classe pessoa com input do usuário
+class Pessoa:
+    def __init__(self, nome, idade, sexo):
+        self.nome = nome
+        self.idade = idade
+        self.sexo = sexo
+    
+
+name = str(input('nome: ').strip().capitalize())
+years = int(input('idade: ').strip())
+sex = str(input('sexo: ').strip())
+
+pessoa = Pessoa(name, years, sex)
+print(f'Nome: {pessoa.nome}\nIdade: {pessoa.idade}\nSexo:{pessoa.sexo}')
 
 
-#Metodo Construtor
+## Mantendo estados dentro da classe
+class Camera:
+    def __init__(self, nome, filmando=False):
+        self.nome = nome
+        self.filmando = filmando
+
+    def filmar(self):
+        if self.filmando:
+            print(f'{self.nome} JÁ está filmando...')
+            return
+
+        print(f'{self.nome} está filmando...')
+        self.filmando = True
+
+    def parar_filmar(self):
+        if not self.filmando:
+            print(f'{self.nome} NÃO está filmando...')
+            return
+
+        print(f'{self.nome} está parando de filmar...')
+        self.filmando = False
+
+    def fotografar(self):
+        if self.filmando:
+            print(f'{self.nome} não pode fotografar filmando')
+            return
+
+        print(f'{self.nome} está fotografando...')
+
+c1 = Camera('Canon')
+
+c1.filmar()
+c1.filmar()
+c1.fotografar()
+c1.parar_filmar()
+c1.fotografar()
+
+## Ex:
     def __init__(self, Nome, Idade):
         self.Nome = Nome
         self.Idade = Idade
@@ -1876,14 +1927,10 @@ celta.acelerar()
     def Recusado(self):
         print('Seu acesso foi negado!!')
 
-
-#Função
     def Maior_Idade(self):
-
         if self.Idade >=18:
             print('Usuário é maior de Idade')
             self.Boas_Vindas()
-
         else:   
             print('Usuário é menor de Idade')
             self.Recusado()
@@ -1891,6 +1938,47 @@ celta.acelerar()
 dados = Pessoa ('Claudio', 19)
 dados.Maior_Idade()
 
+## Atributos de classe
+Cria-se uma variavél como atributo da classe para que possa ser usada no restante do código,
+tendo o mesmo valor em todas as instâncias da classe
+
+# Ex:
+class Pessoa:
+    ano_atual = 2025
+
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def get_ano_nascimento(self):
+        return Pessoa.ano_atual - self.idade
+
+p = Pessoa('Ataídes', 20)
+print(p.get_ano_nascimento())
+
+
+## Dict 
+Ele é uma espécie de dicionário, que está dentro do objeto nas instâncias, onde mantém os valores que podem ser escritos dentro do objeto - __dict__
+            **É possível alterar o valor do __dict__ é Apagar Também**
+Ex:
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade                      
+                                      |-> Mostra todos os dados salvos do objeto
+p = Pessoa('Ataídes', 20)             |
+print(p.__dict__) - *{'nome': 'Ataídes', 'idade': 20}*
+
+# Vars
+Vai mostrar o __dict__ da variável que está sendo usada
+Ex:
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+p = Pessoa('Ataídes', 20)
+print(vars(p)) - *{'nome': 'Ataídes', 'idade': 20}*
 
 
 # COMANDO ROUND - para arrendondar números
