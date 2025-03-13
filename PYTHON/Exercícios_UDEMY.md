@@ -1764,3 +1764,79 @@ while True:
     else:
         adicionar(tarefa, tarefas)
         listar(tarefas)
+
+
+# Exercício - Salve sua classe em JSON
+ # Salve os dados da sua classe em JSON
+ # e depois crie novamente as instâncias
+ # da classe com os dados salvos
+ # Faça em arquivos separados.
+
+# Minha Versão 
+import json
+
+def salvar_dados(dados, caminho_arquivo):
+    print('O dados estão sendo salvos...')
+    with open(caminho_arquivo, 'w', encoding='utf-8') as arquivo:
+        json.dump(dados.__dict__, arquivo, ensure_ascii=False, indent=2) 
+    print('Salvos com sucesso!')
+
+def msg_nao_salvar(dados):
+    print('Ok, dados não serão salvos!')
+    print('Dados Digitados:')
+    print(f'Nome: {dados.nome}, idade: {dados.idade}, sexo: {dados.sexo}')
+
+CAMINHO_ARQUIVO = 'C:\\Users\\leona\\OneDrive\\Documentos\\UDEMY_PTHON\\PYTHON\\dados.json'
+
+class Pessoa:
+    def __init__(self, nome, idade, sexo):
+        self.nome = nome
+        self.idade= idade
+        self.sexo = sexo
+        
+name = str(input('Digite o nome: ').strip() .capitalize())
+years = int(input('Digite a idade: ').strip())
+sex = str(input('Digite seu gênero: ').strip())
+save = str(input('Deseja salvar os dados? [S/N]: ').strip().upper())
+
+pessoa = Pessoa(name, years, sex)
+
+if save == 'S':
+  salvar_dados(pessoa, CAMINHO_ARQUIVO)
+        
+else:
+   msg_nao_salvar(pessoa)
+
+## Arquivo 2
+
+import json
+
+def ler_dados(caminho_arquivo):
+    try:
+        with open (caminho_arquivo, 'r') as arquivo:
+            dados = json.load(arquivo)    
+        return Pessoa(**dados)
+    
+    except json.JSONDecodeError:
+        return None
+    
+class Pessoa:
+    def __init__(self, nome, idade, sexo):
+        self.nome = nome
+        self.idade= idade
+        self.sexo = sexo
+
+CAMINHO_ARQUIVO = 'C:\\Users\\leona\\OneDrive\\Documentos\\UDEMY_PTHON\\PYTHON\\dados.json'
+
+ler = str(input('Deseja carregar dados já salvos? [S/N]:').strip().upper())
+
+if ler == 'S':
+    pessoa = ler_dados(CAMINHO_ARQUIVO)
+    if pessoa:
+        print(f'Nome: {pessoa.nome}, idade: {pessoa.idade}, sexo: {pessoa.sexo}')
+    else:
+        print('Não há dados')
+
+else:
+     print('Programa Encerrado')
+
