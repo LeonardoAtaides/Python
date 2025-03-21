@@ -1981,6 +1981,70 @@ p = Pessoa('Ataídes', 20)
 print(vars(p)) - *{'nome': 'Ataídes', 'idade': 20}*
 
 
+
+# @PROPERTY e GETTER
+É um método que utilizado para obter ter um valor de determinado atributo
+-Para evitar quebrar código "cliente" -> **é o código que usa seu código**
+-Para Habilitar setter
+-Para executar ações ao obter um atributo
+
+Ex: 
+class Caneta:
+    def __init__(self, cor):
+        self.cor_tinta = cor
+                                   _____________________________________________________
+    def get_cor(self):     -----> |proteje a cor dentro de um escopo evitando de quebrar|
+        return self.cor_tinta     |o código ao realizar a troca de nome                 |
+                                  |_____________________________________________________|
+caneta = Caneta('Azul')
+print(caneta.get_cor())
+print(caneta.get_cor())
+
+
+*@property* é um propriedade do objeto, que se comporta como um atributo, sendo usada:
+**Não é necessário chamar o método com "()", apenas acessar o atributo**
+-Também permite desta forma não quebrar o código cliente
+
+
+Ex:
+class Caneta:
+    def __init__(self, cor):
+        self.cor_tinta = cor
+    
+    @property
+    def cor(self):
+        return self.cor_tinta
+
+caneta = Caneta('Azul')
+print(caneta.cor)
+print(caneta.cor)
+
+## SETTER
+É um método que é utilizado para configurar determinado atributo
+- Passa por um método para configurar o atributo
+- Evitar quebrar código 
+
+Ex: 
+class Caneta:
+    def __init__(self, cor):       _______________________________________________________
+        self.__cor = cor # -----> | o __ é nome da variável significa não use este método |
+                                  | fora da classe *Private Protected*                    |
+                                  |_______________________________________________________|
+
+    @property                   _________*Recebe o valor*______
+    def cor(self):      -->    | traz o valor do init para den |
+        return self.__cor      | tro do método                 |
+                               |_______________________________|
+
+     |-> nome da property      ___________________*Configura o Valor*_____________________
+    @cor.setter                |         Recebe um valor que vem do *property*             |
+    def cor(self, valor): ---> | Possível realizar um lógica com if para fazer um filtro   |
+        self.__cor = valor     |___________________________________________________________|
+    
+caneta = Caneta('Azul')
+caneta.cor = 'Rosa'
+
+
 # COMANDO ROUND - para arrendondar números
 **round()**
 Ex:
