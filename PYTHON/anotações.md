@@ -1824,7 +1824,7 @@ soma(1, 2, c= 3)
 
 # PROGRAMAÇÃO ORIENTADA A OBJETOS
 
-# CLASS
+## CLASS
 classes ssão moldes para criar novos objetos, gerando novos objetos (instânciais) que podem
 ter seus próprios atributos e métodos, onde são gerados por uma classe podem usar seus dados 
 internos para realizar várias ações,
@@ -1851,7 +1851,7 @@ class Carro:
     def __init__(self, nome):
         self.nome = nome
     
-#          Método
+##          Método
     def acelerar(self, ):
         print(f'{self.nome} está acelereando...')
 
@@ -1863,7 +1863,7 @@ celta = Carro('Celta')
 print(celta.nome)
 celta.acelerar()
 
-## Ex: Uma classe pessoa com input do usuário
+### Ex: Uma classe pessoa com input do usuário
 class Pessoa:
     def __init__(self, nome, idade, sexo):
         self.nome = nome
@@ -1879,7 +1879,7 @@ pessoa = Pessoa(name, years, sex)
 print(f'Nome: {pessoa.nome}\nIdade: {pessoa.idade}\nSexo:{pessoa.sexo}')
 
 
-## Mantendo estados dentro da classe
+### Mantendo estados dentro da classe
 class Camera:
     def __init__(self, nome, filmando=False):
         self.nome = nome
@@ -1942,7 +1942,7 @@ dados.Maior_Idade()
 Cria-se uma variavél como atributo da classe para que possa ser usada no restante do código,
 tendo o mesmo valor em todas as instâncias da classe
 
-# Ex:
+### Ex:
 class Pessoa:
     ano_atual = 2025
 
@@ -1969,7 +1969,7 @@ class Pessoa:
 p = Pessoa('Ataídes', 20)             |
 print(p.__dict__) - *{'nome': 'Ataídes', 'idade': 20}*
 
-# Vars
+## Vars
 Vai mostrar o __dict__ da variável que está sendo usada
 Ex:
 class Pessoa:
@@ -1982,7 +1982,7 @@ print(vars(p)) - *{'nome': 'Ataídes', 'idade': 20}*
 
 
 
-# @PROPERTY e GETTER
+## @PROPERTY e GETTER
 É um método que utilizado para obter ter um valor de determinado atributo
 -Para evitar quebrar código "cliente" -> **é o código que usa seu código**
 -Para Habilitar setter
@@ -2033,7 +2033,7 @@ class Caneta:
 
     @property                   _________*Recebe o valor*______
     def cor(self):      -->    | traz o valor do init para den |
-        return self.__cor      | tro do método                 |
+        return self.__cor      | tro do método que excuta ações|
                                |_______________________________|
 
      |-> nome da property      ___________________*Configura o Valor*_____________________
@@ -2043,6 +2043,16 @@ class Caneta:
     
 caneta = Caneta('Azul')
 caneta.cor = 'Rosa'
+
+# ENCAPSULAMENTO
+São modificadores de acesso: public, protected, private mas como o 
+python *não tem* segue as covenções:
+
+*Sem underline = public*: Pode ser usado em qualquer lugar
+
+*_ Um underline = protected*: Não deve ser usado fora, mas sim dentro da classe e subclasses
+
+*__ Dois underlines = private*: Só deve ser usado na classe em que foi declarado
 
 
 # COMANDO ROUND - para arrendondar números
