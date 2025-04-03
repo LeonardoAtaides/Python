@@ -2052,8 +2052,84 @@ python *não tem* segue as covenções:
 
 *_ Um underline = protected*: Não deve ser usado fora, mas sim dentro da classe e subclasses
 
-*__ Dois underlines = private*: Só deve ser usado na classe em que foi declarado
+*__ Dois underlines = private*: Só deve ser usado na classe em que foi declarado, especilmente um dev
 
+# ASSOCIAÇÃO
+É uma ligação entre duas ou mais classes, que tem uma relação entre os objetos, sendo uma relação fraca
+
+# AGREGAÇÃO
+As duas coisas existem de forma independente, mas juntas agregam para algo maior
+Ex: Relação de 1 pra vários, um Carrinho de compras pra vários produtos
+
+class Carrinho:
+    def __init__(self):
+        self._produtos = []
+
+    def total(self):
+        return sum(p.preco for p in self._produtos)
+    
+    def inserir_produtos(self, *produtos):
+        for produto in produtos:
+            self._produtos.append(produto)
+
+    def listar_produtos(self):
+        print()
+        for produto in self._produtos:
+            print(f"Nome: {produto.nome}, Preço: {produto.preco}")  
+        print()
+    
+class Produto:
+    def __init__(self, nome, preco):
+        self.nome = nome
+        self.preco = preco
+    
+carrinho = Carrinho()
+p1, p2 = Produto("Camiseta", 20.0),Produto("Calça", 25.0)
+carrinho.inserir_produtos(p1, p2)
+carrinho.listar_produtos()
+print(f"Total: {carrinho.total()}")
+
+# COMPOSIÇÃO
+É uma relação de agregação forte, ou seja quando o objeto "pai" for apagado, todas as referências dos objetos "filhos" também são apagados
+Ex:
+class Cliente:
+    def __init__(self, nome):
+        self.nome = nome
+        self.enderecos = []
+
+    def inserir_endereco(self, rua, numero):
+        self.enderecos.append(Endereco(rua, numero))
+
+    def inserir_endereco_externo(self, endereco):
+        self.enderecos.append(endereco)
+
+    def listar_enderecos(self):
+        for endereco in self.enderecos:
+            print(endereco.rua, endereco.numero)
+
+    def __del__(self):
+        print('APAGANDO,', self.nome)
+
+
+class Endereco:
+    def __init__(self, rua, numero):
+        self.rua = rua
+        self.numero = numero
+
+    def __del__(self):
+        print('APAGANDO,', self.rua, self.numero)
+
+
+cliente1 = Cliente('Maria')
+cliente1.inserir_endereco('Av Brasil', 54)
+cliente1.inserir_endereco('Rua B', 6745)
+endereco_externo = Endereco('Av Saudade', 123213)
+cliente1.inserir_endereco_externo(endereco_externo)
+cliente1.listar_enderecos()
+
+del cliente1
+print(endereco_externo.rua, endereco_externo.numero)
+print('######################## AQUI TERMINA MEU CÓDIGO')
 
 # COMANDO ROUND - para arrendondar números
 **round()**
