@@ -2131,6 +2131,18 @@ del cliente1
 print(endereco_externo.rua, endereco_externo.numero)
 print('######################## AQUI TERMINA MEU CÓDIGO')
 
+
+# Herança 
+Uma classe extende a outra classe por herença, sendo usada para deixrv uma classe mais genérica para ser utilizada em outras
+Ex:
+        *Classe Principal(pessoa)*       |      *Classes filhas (cliente)*
+-> super class, base class, parent class | -> sub class, clild class, derived class
+        **Acima Hierarquicamente**       |       **Abaixo Hierarquicamente**
+
+
+
+
+
 # COMANDO ROUND - para arrendondar números
 **round()**
 Ex:
