@@ -2155,6 +2155,28 @@ print(c1.nome, c1.sobrenome)
 c1.falar_nome()
 
 
+## Super 
+É uma classe que retorna temporiamente a super classe, permitindo chamar os métodos dela
+ex: 
+class MinhaString(str):            _____________________________
+    def upper(self):              |Se não colocar retorna *None*|
+        super()                   |_____________________________|
+
+string = MinhaString('ataídes')
+print(string.capitalize())
+
+##  Sobreposição
+Sobrescrever um método da super classe na sub classe
+class MinhaString(str):
+    def upper(self):
+        print('CHAMOU UPPER')
+        return super().upper()
+
+string = MinhaString('ataídes')
+print(string.upper())
+
+
+
 
 # COMANDO ROUND - para arrendondar números
 **round()**
