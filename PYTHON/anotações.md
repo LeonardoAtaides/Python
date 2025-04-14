@@ -2133,13 +2133,26 @@ print('######################## AQUI TERMINA MEU CÓDIGO')
 
 
 # Herança 
-Uma classe extende a outra classe por herença, sendo usada para deixrv uma classe mais genérica para ser utilizada em outras
+Uma classe extende a outra classe por herença, sendo usada para deixar uma classe mais genérica para ser utilizada em outras
 Ex:
         *Classe Principal(pessoa)*       |      *Classes filhas (cliente)*
 -> super class, base class, parent class | -> sub class, clild class, derived class
         **Acima Hierarquicamente**       |       **Abaixo Hierarquicamente**
 
+Ex:
+class Pessoa:
+    def __init__(self, nome,sobrenome):
+        self.nome= nome
+        self.sobrenome = sobrenome
+    
+    def falar_nome(self):
+        print(self.nome, self.sobrenome,self.__class__.__name__)
+class Cliente(Pessoa):
+    ...
 
+c1 = Cliente('Leonardo', 'Ataídes')
+print(c1.nome, c1.sobrenome)
+c1.falar_nome()
 
 
 
