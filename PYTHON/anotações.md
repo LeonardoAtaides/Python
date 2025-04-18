@@ -2154,6 +2154,12 @@ c1 = Cliente('Leonardo', 'Ataídes')
 print(c1.nome, c1.sobrenome)
 c1.falar_nome()
 
+# Herança Multipla
+Uma classe pode estender várias classes 
+Ex: 
+Log -> FileLog ------ Humano -> Pessoa -> Cliente
+          *Cliente(Pessoa, FileLog)*
+
 
 ## Super 
 É uma classe que retorna temporiamente a super classe, permitindo chamar os métodos dela
