@@ -1,9 +1,6 @@
-from log import LogFileMixin, LogPrintMixin
-
-lp = LogPrintMixin()
-lp.log_error('main error')
-lp.log_success('main success')
-
-lf = LogFileMixin()
-lf.log_error('main error')
-lf.log_success('main success')
+from eletronico import SmartPhone
+ 
+n_disp = 'Iphone X'
+iphone = SmartPhone(n_disp)
+iphone.ligar(n_disp)
+iphone.desligar(n_disp)
