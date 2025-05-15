@@ -1,3 +1,5 @@
+from log import LogPrintMixin
+
 class Eletronico:
     def __init__(self, nome ):
         self._nome = nome
@@ -13,5 +15,17 @@ class Eletronico:
             self._ligado = False
             print(f'{nome} Desligado')
 
-class SmartPhone(Eletronico):
-    ...
+class SmartPhone(Eletronico, LogPrintMixin):
+    def ligar (self):
+        super().ligar()
+
+        if self._ligado:
+            msg =  f'{self._nome} está ligado'
+            self.log_success(msg)
+    
+    def desligar (self):
+        super().desligar()
+
+        if self._ligado:
+            msg =  f'{self._nome} está desligado'
+            self.log_success(msg)
