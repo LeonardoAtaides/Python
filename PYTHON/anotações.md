@@ -2181,7 +2181,41 @@ class MinhaString(str):
 string = MinhaString('ataídes')
 print(string.upper())
 
+# Classes Obstradas (ABC)
+São usadas como contratos para a definição de novas classes,podendo forçar outras classes
+a criarem métodos concretos, podem ter métodos concretos por elas mesmas
 
+_@abstractmethods_ são métodos que não têm corpo, as regras para as classes abstratas com 
+métodos abstratos é que elas não podem ser instãnciadas diretamente
+
+_Métodos abstratos_ devem ser implementados nas subclasses (@abstractmethod)
+
+Uma classe abstrata em Pyhton tem sua metaclasse sendo _ABCMeta_
+
+É possível criar @property @setter @classmethod @staticmethod e @nethod como abstratos, para isso,
+usar @abstractmethod como decorador mais interno
+
+Ex:
+from abc import ABC, abstractmethod 
+
+class Log(ABC): -> herda de ABC
+    @abstractmethod -> decorator que mantém a classe abstrata
+    def _log(self, msg):...
+
+
+    def log_error(self,msg):
+       return self._log(f'Error: {msg}')
+    
+    def log_success(self,msg):
+        return self._log(f'Success: {msg}')
+    
+class LogFileMixin(Log):
+    def _log(self, msg):
+       msg_formatada = f'{msg} ({self.__class__.__name__})'
+       print('Salvando no log:', msg_formatada)
+       with open(LOG_FILE, 'a') as arquivo:
+           arquivo.write(msg_formatada)
+           arquivo.write('\n')
 
 
 # COMANDO ROUND - para arrendondar números
