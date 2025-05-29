@@ -2217,6 +2217,12 @@ class LogFileMixin(Log):
            arquivo.write(msg_formatada)
            arquivo.write('\n')
 
+# POLIMORFISMO
+É o principio que permite qiue as classees derivadas de uma mesma superclasse tenham métodos iguais com a mesma assinatura, mas com comportamentos diferentes
+
+*príncipio da substituição de liskov*
+- Objetos de uma superclasse dever ser substituíves, por objetos de uma subclasse sem quebrar a aplicação
+
 
 # COMANDO ROUND - para arrendondar números
 **round()**
