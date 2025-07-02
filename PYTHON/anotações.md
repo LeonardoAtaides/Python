@@ -1196,6 +1196,26 @@ Criei uma exceção que mostra uma mensagem no erro
 print(123)
 raise ValueError('Deu erro meno') - *raise ValueError('Deu erro meno')*
                                         *ValueError: Deu erro meno*
+Ex 2:
+class MyError(Exception):
+    ...
+def levantar():
+    raise MyError("System error")
+try:                         ______________________
+    levantar()              | para apresentar so a |
+except MyError as error: -> | mensagem do erro sem |
+    print(error)            | mostrar os caminhos  |
+                       |______________________|
+## Notas de Raise
+Usado para adicionar uma especie de comentário no erro
+EX:
+class MyError(Exception):
+    ...
+def levantar():
+    errors = MyError("SysteM error")
+    errors.*add_note*("vacilou na line 10")
+    raise errors
+levantar() 
 
 
 # Import
