@@ -2283,10 +2283,6 @@ notificar(notificacao_sms)
 
 ## DUNDER METHODS
 São métodos que realiza certa ação quando o objeto é instanciado
-__lt__(self,other) - self < other
-
-__le__(self,other) - self <= other
-
 __gt__(self,other) - self > other: faz uma comparação 
 Ex:
 class Ponto:
@@ -2315,11 +2311,6 @@ print(p3)
 print('P1 é maior que P2', p1 > p2)
 print('P2 é maior que P1', p2 > p1)
 
-__ge__(self,other) - self >= other
-
-__eq__(self,other) - self == other
-
-__ne__(self,other) - self != other
 
 __add__(self,other) - self + other: realiza soma
 Ex:
@@ -2342,6 +2333,7 @@ p2 = Ponto(6, 4)
 p3 = p1 + p2
 
 __sub__(self,other) - self - other
+__new__ (cls): cria um novo objeto
 __mul__(self,other) - self * other
 __truediv__(self,other) - self / other
 __neg__(self) - -self
@@ -2376,7 +2368,6 @@ p2 = Ponto(978, 876)
 
 print(p1) *Retorna str*
 print(repr(p2)) *Retorna Repr* ou print(f'{p2!r}')
-
 
 
 # COMANDO ROUND - para arrendondar números
