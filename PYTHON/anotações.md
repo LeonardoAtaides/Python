@@ -2369,6 +2369,9 @@ p2 = Ponto(978, 876)
 print(p1) *Retorna str*
 print(repr(p2)) *Retorna Repr* ou print(f'{p2!r}')
 
+# Context Manager com Classes
+Você mesmo pode implementar seus próprios protocolos, apenas implementando os dunder methods que o Python vai usuar.
+*Usando o conceito de Duck Typing*: é um conceito relacionado com tipagem dinâmica onde o Python não está interessado no tipo, mas sim nos métodos que existem no seu objeto para que ele funcione de forma adequeada.
 
 # COMANDO ROUND - para arrendondar números
 **round()**
