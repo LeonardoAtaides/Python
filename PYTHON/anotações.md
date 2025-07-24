@@ -2395,6 +2395,10 @@ with MyOpen('aula149.txt', 'w') as arquivo:
     arquivo.write('Linha 3\n')
     print('WITH', arquivo)
     
+
+# Funções Decoradoras
+Você pode criar suas próprias funções decoradoras, apenas criando uma função que recebe outra função
+
 # COMANDO ROUND - para arrendondar números
 **round()**
 Ex:
