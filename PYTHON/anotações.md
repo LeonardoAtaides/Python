@@ -1890,7 +1890,6 @@ class Pessoa:
         self.idade = idade
         self.sexo = sexo
     
-
 name = str(input('nome: ').strip().capitalize())
 years = int(input('idade: ').strip())
 sex = str(input('sexo: ').strip())
@@ -2000,8 +1999,6 @@ class Pessoa:
 p = Pessoa('Ataídes', 20)
 print(vars(p)) - *{'nome': 'Ataídes', 'idade': 20}*
 
-
-
 ## @PROPERTY e GETTER
 É um método que utilizado para obter ter um valor de determinado atributo
 -Para evitar quebrar código "cliente" -> **é o código que usa seu código**
@@ -2024,7 +2021,6 @@ print(caneta.get_cor())
 *@property* é um propriedade do objeto, que se comporta como um atributo, sendo usada:
 **Não é necessário chamar o método com "()", apenas acessar o atributo**
 -Também permite desta forma não quebrar o código cliente
-
 
 Ex:
 class Caneta:
@@ -2179,7 +2175,6 @@ Uma classe pode estender várias classes
 Ex: 
 Log -> FileLog ------ Humano -> Pessoa -> Cliente
           *Cliente(Pessoa, FileLog)*
-
 
 ## Super 
 É uma classe que retorna temporiamente a super classe, permitindo chamar os métodos dela
