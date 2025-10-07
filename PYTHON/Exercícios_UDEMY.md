@@ -1920,3 +1920,43 @@ celta.fabricante = chevrolet
 celta.motor = motor_1_0
 
 print(celta.nome, celta.fabricante.nome, celta.motor.nome)
+
+
+Exercícios Básicos
+//01
+class Carro:
+    def __init__(self, marca,  modelo, ano):
+        self.marca = marca
+        self.modelo = modelo
+        self.ano = ano 
+
+
+c1 = Carro("Chevrolet", "Celta", 2013)
+c2 = Carro("Nissan", "Gtr", 2010)
+
+print(f'Marca: {c1.marca}\nModelo: {c1.modelo}\nAno: {c1.ano}')
+
+// 02
+
+class Pessoa:
+    def __init__(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def apresentar(self):
+        return f'olá , meu nome é {self.nome} e tenho {self.idade} anos'
+    
+p1 = Pessoa('Ataídes', 21)
+print(p1.apresentar())
+
+//03
+class Calculo:
+    def __init__(self, largura, altura):
+        self.largura = largura
+        self.altura = altura
+
+    def calculararea(self):
+        return self.largura * self.altura
+    
+p1 = Calculo(20,20)
+print(p1.calculararea())
