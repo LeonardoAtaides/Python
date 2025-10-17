@@ -1872,7 +1872,7 @@ class Carro:
         self.nome = nome
     
 ##          Método
-    def acelerar(self, ):
+    def acelerar(self):
         print(f'{self.nome} está acelereando...')
 
 fusca = Carro('Fusca')
