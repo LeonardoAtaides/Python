@@ -2394,6 +2394,12 @@ with MyOpen('aula149.txt', 'w') as arquivo:
 # Funções Decoradoras
 Você pode criar suas próprias funções decoradoras, apenas criando uma função que recebe outra função
 
+
+
+
+
+
+
 # COMANDO ROUND - para arrendondar números
 **round()**
 Ex:
